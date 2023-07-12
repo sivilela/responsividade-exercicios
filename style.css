@@ -1,19 +1,103 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: white;
+/* 1. O primeiro layout é para telas de 1200px ou mais de largura;
+2. O segundo para telas entre 1200px e 800px de largura (considere 1000 como um ponto de quebra possível);
+3. O terceiro para telas de 800px ou menos. */
+*{
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+}
+body{
+  display: flex;
+  justify-content: center;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  column-gap: 1vw;
+  padding: 2vw;
+  width: 100vw;
+}
+
+#item-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  background-color: steelblue;
+  border-radius: 0.5em;
+  text-align: center;   
+
+}
+
+#item-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  background-color: #fe7e02;
+  border-radius: 0.5em;
+  order: -1;
+  writing-mode:vertical-rl;
+  text-align: center;
+}
+
+#item-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  background-color: #45525b;
+  border-radius: 0.5em;
+  writing-mode: vertical-rl;
+  text-align: center;
+}
+
+@media screen and (min-device-width:800px) and (max-device-width:1200px) {.container{
+      grid-template-columns: 4fr 1fr;
+      grid-template-rows: 4fr 1fr;
+      width: 100%;
+      row-gap: 1vh;
+      padding: 1vh;}
+      #item-1{
+      grid-column: 1/2;
+      grid-row: 1/2;}
+      #item-2{
+      grid-column: 1/3;
+      grid-row: 2/3;
+      writing-mode: horizontal-tb;}#item-3{
+      grid-column: 2/3;
+      grid-row: 1/2;}}
+@media screen and (max-device-width: 800px) {
+    .container{
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    #item-1{
+      width: 100vw;
+      height: 60vh;
+      order: -1;
+      text-align: center;
+    }
+    #item-2{
+      height: 40vh;
+      width: 49vw;
+      writing-mode: horizontal-tb;
+      text-align: center;
+    }
+    #item-3{
+      display: flex;
+      flex-wrap: wrap;
+      height: 40vh;
+      width: 49vw;
+      writing-mode: horizontal-tb;
+      text-align: center;
+    }
   }
-  
-  #item-1 {
-    background-color: steelblue;
-  }
-  
-  #item-2 {
-    background-color: #fe7e02;
-  }
-  
-  #item-3 {
-    background-color: #45525b;
-  }
-  
